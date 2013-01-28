@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Scheduler</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-
-</body>
+	<head>
+		<title>Message Board</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<!-- navbar -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="brand">
+						Scheduler
+					</div>
+					<ul class="nav pull-right">
+						<% if user_signed_in? %>
+						<li>
+							<a href="#">Logged in as <%= current_user.email %></a>
+						</li>
+						<li>
+							<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to('Login', new_user_session_path)  %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<!-- alerts -->
+			<div class="alerts">
+				<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, :class => "#{name}" %>
+				<% end %>
+			</div>
+			<%= yield %>
+		</div>
+	</body>
 </html>
