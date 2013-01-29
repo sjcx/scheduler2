@@ -1,0 +1,11 @@
+<!-- body -->
+<div class="page-header">
+	<h1><%= @user.name %></h1>
+</div>
+<div>
+	<p class="lead"><strong>Contact: </strong><a href="mailto:<%= @user.email%>"><%= @user.email %></a></p>
+	<p class="lead"><strong>Program: </strong><%= @user.program %></p>
+	<p class="lead"><strong>Joined On: </strong><%= @user.created_at %></p>
+	<p class="lead"><strong>Admin? </strong><%= @user.admin %></p>
+	<p class="lead"><strong>Past Appointments</strong></p>
+</div>

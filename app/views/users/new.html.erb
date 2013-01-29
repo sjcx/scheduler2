@@ -1,0 +1,14 @@
+<!-- body -->
+<div class="page-header">
+	<h1>New User</h1>
+</div>
+<%= simple_form_for @user do |u| %>
+  <%= u.input :name %>
+  <%= u.input :program %>
+  <%= u.input :email, :hint => "Use your @waldenu.edu address!" %>
+  <%= u.input :password %>
+  <%= u.input :password_confirmation%>
+  <%= u.input :admin, inline_label: 'Allow admin access' %><br />
+  <%= u.button :submit %>
+<% end %>
+

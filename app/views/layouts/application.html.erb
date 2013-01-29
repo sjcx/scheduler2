@@ -33,11 +33,13 @@
 		</div>
 		<div class="container">
 			<!-- alerts -->
-			<div class="alerts">
-				<% flash.each do |name, msg| %>
-				<%= content_tag :div, msg, :class => "#{name}" %>
-				<% end %>
+			<% [:notice, :error, :alert, :success].each do |level| %>
+			<% unless flash[level].blank? %>
+			<div class="<%= flash_class(level) %>">
+				<%= content_tag :span, flash[level] %>
 			</div>
+			<% end %>
+			<% end %>
 			<%= yield %>
 		</div>
 	</body>
