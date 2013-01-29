@@ -15,9 +15,8 @@
 			<td><%= user.name %></td>
 			<td><%= user.program %></td>
 			<td><%= user.email %></td>
-			<td><%= link_to 'Show', user %></td>
+			<td><a href="users/<%= user.id %>">Show</a></td>
 		</tr>
 		<% end %>
 	</table>
 </div>
-<%= link_to 'New User', new_user_path %>

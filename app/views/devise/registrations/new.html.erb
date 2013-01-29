@@ -1,18 +1,19 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |u| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+   <%= u.input :name %>
+  <%= u.input :program %>
+  <%= u.input :email, :hint => "Use your @waldenu.edu address!" %>
+  <%= u.input :password %>
+  <%= u.input :password_confirmation%>
+  <%= u.input :admin, inline_label: 'Allow admin access' %><br />
+  <%= u.button :submit %>
 <% end %>
 
+  
+
+
 <%= render "devise/shared/links" %>
+

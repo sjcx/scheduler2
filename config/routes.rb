@@ -1,8 +1,12 @@
 Scheduler2::Application.routes.draw do
+
+
   devise_for :users
-  scope "/admin" do
-    resource :users, :controller => "users"
-  end
+  match 'users' => 'users#index'
+  match 'users/:id' => 'users#show'
+  #scope "admin" do
+    resource :users
+  #end
 
   root :to => 'welcome#index'
 
