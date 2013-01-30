@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize
   
-  def authorize
-    unless current_user.admin?
-      flash[:error] = "You aren't authorized to view that resource!"
-      redirect_to root_url
-      false
-    end
-  end
-  
    def index
     @users = User.all
 

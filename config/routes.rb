@@ -1,15 +1,10 @@
 Scheduler2::Application.routes.draw do
 
-
-  resources :tutors
-
-  resources :appointments
-
   devise_for :users
   match 'admin/users' => 'users#index'
   match 'admin/users/:id' => 'users#show'
-
-
+  resources :tutors
+  resources :appointments
   root :to => 'welcome#index'
 
 # The priority is based upon order of creation:

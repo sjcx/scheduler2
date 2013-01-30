@@ -1,0 +1,8 @@
+<h2>New Tutor</h2>
+
+<%= simple_form_for(@tutor, :html => { :class => 'form-horizontal' }) do |t| %>
+<%= t.input :name %>
+<%= t.input :bio %>
+<br />
+<%= t.button :submit %>
+<% end %>
