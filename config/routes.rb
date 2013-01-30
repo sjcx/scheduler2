@@ -1,12 +1,14 @@
 Scheduler2::Application.routes.draw do
 
 
+  resources :tutors
+
+  resources :appointments
+
   devise_for :users
-  match 'users' => 'users#index'
-  match 'users/:id' => 'users#show'
-  #scope "admin" do
-    resource :users
-  #end
+  match 'admin/users' => 'users#index'
+  match 'admin/users/:id' => 'users#show'
+
 
   root :to => 'welcome#index'
 
